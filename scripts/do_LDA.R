@@ -2,7 +2,7 @@ library(STdeconvolve)
 library(Matrix)
 library(Seurat)
 #setwd("H:/Biostatistics/PICI/data/ST/BleileMS")
-load("Github Data/PPD1_22")
+load("data/VisiumData.rda")
 cd <- GetAssayData(spat, slot="counts", assay="Spatial")
 pos <- GetTissueCoordinates(spat)
 
