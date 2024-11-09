@@ -1,10 +1,11 @@
 library(Seurat)
 
 ##requires: 1) cleanreference (CM data) and 2) sct data
-setwd("H:/Biostatistics/PICI/data/ST/BleileMS")
+#devtools::install_github(MLenaBleile/ScSpatialFeaturePlot)
+library(ScSpatialFeaturePlot)
 library(ggplot2)
-load("H:/Biostatistics/PICI/data/ST/SmithyMS/ChrisMarineData/data/cleanreference")
-source("functions/ScSpatialFeaturePlot.R")
+load("data/cleanreference.rda")
+
 
 # save(cref, file="data/ChrisMarineReference")
 #subset the data to only include exclusive cell types
