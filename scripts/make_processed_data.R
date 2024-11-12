@@ -1,10 +1,10 @@
 library(Seurat)
 library(ggplot2)
 
-sampleid="PPD1_22"
+sampleid="in_house_sample_id"
 
-home.dir="H:/Biostatistics/PICI/data/ST/spaceranger/"
-one.file= "Sample_PPD1-22_D1_IGO_14577_C_18"
+home.dir="in_house_home_dir"
+one.file= "in_house_sample_location"
 
 imgd=Read10X_Image(
   image.dir=paste(home.dir,one.file,"/outs/spatial",sep=""),
@@ -40,4 +40,4 @@ spat <- FindNeighbors(spat, reduction = "pca", dims = 1:15)
 spat <- FindClusters(spat, verbose = FALSE)
 spat <- RunUMAP(spat, reduction = "pca", dims = 1:15)
 
-save(spat, file=paste("Github Data/",sampleid, sep=""))
+save(spat, file="VisiumData.rda")
