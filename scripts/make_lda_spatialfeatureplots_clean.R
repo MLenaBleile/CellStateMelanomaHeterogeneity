@@ -1,10 +1,8 @@
-setwd("H:/Biostatistics/PICI/data/ST/BleileMS")
-#load("data/PPD1_22")
-sampleid="PPD1_22"
-load(paste("H:/Biostatistics/PICI/data/ST/sct/", sampleid, sep=""))
-
+library(Seurat)
+library(ScSpatialFeaturePlot)
+load("data/VisiumData.rda")
 load("data/ldas")
-source("../PipelineMS/functions/scSpatialFeaturePlot.R")
+
 
 K=8
 optLDA = ldas$models[[K-4]]
