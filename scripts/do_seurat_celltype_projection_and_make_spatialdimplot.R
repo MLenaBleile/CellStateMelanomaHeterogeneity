@@ -16,12 +16,12 @@ cref.6type=subset(cref, subset=(Cluster %in% c("Immune","Stroma","Keratinocytes"
 load("H:/Biostatistics/PICI/data/ST/sct/PPD1_22")
 bothvarfeats=intersect(rownames(cref),VariableFeatures(spat))
 # This part takes awhile to run
-anchors <- FindTransferAnchors(reference = cref.6type, query = spat,
+anchors <- FindTransferAnchors(reference = cref, query = spat,
                                normalization.method = "SCT")
 # save(anchors, file="data/anchors")
 # load("data/anchors")
 
-predictions.matrix <- TransferData(anchorset = anchors, refdata = cref.6type$Cluster, prediction.assay = F,
+predictions.matrix <- TransferData(anchorset = anchors, refdata = cref$Cluster, prediction.assay = F,
                                    weight.reduction = spat[["pca"]], dims = 1:15)
 
 
