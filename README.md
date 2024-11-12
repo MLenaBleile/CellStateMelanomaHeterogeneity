@@ -7,4 +7,4 @@ devtools::install_github("MLenaBleile/ScSpatialFeaturePlot")
 ```
 Citation:
 
-MaryLena Bleile, James Smithy, Xiyu Peng, Miranda Hunter, Fiona Ehrich, Allison Reiner, Jasme Lee, Andrea Moy, Margaret Callahan, Richard White, Katherine Panageas, and Ronglai Shen. *Navigating the Cell State Complexity in Spatial Transcriptomics Deconvolution*. (2024) Manuscript under revision at Cancer Reserach Communication.
+MaryLena Bleile, James Smithy, Xiyu Peng, Miranda Hunter, Fiona Ehrich, Allison Reiner, Jasme Lee, Andrea Moy, Margaret Callahan, Richard White, Katherine Panageas, and Ronglai Shen. *Navigating the Cell State Complexity in Spatial Transcriptomics Deconvolution*. (2024) Manuscript under revision at Cancer Research Communication.
