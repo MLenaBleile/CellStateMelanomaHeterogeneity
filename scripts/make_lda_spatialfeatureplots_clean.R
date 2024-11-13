@@ -1,7 +1,7 @@
 library(Seurat)
 library(ScSpatialFeaturePlot)
 load("data/VisiumData.rda")
-load("data/ldas")
+load("data/ldas.rda")
 
 
 K=8
