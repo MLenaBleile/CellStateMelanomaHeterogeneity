@@ -4,16 +4,9 @@ library(Seurat)
 #devtools::install_github(MLenaBleile/ScSpatialFeaturePlot)
 library(ScSpatialFeaturePlot)
 library(ggplot2)
-load("data/cleanreference.rda")
+load("data/Pozniak_reference_data.rda")
+load("data/VisiumData.rda")
 
-
-# save(cref, file="data/ChrisMarineReference")
-#subset the data to only include exclusive cell types
-cref.6type=subset(cref, subset=(Cluster %in% c("Immune","Stroma","Keratinocytes","Neural_Crest_like","Melanocytic", "Mesenchymal_like")))
-
-
-
-load("H:/Biostatistics/PICI/data/ST/sct/PPD1_22")
 bothvarfeats=intersect(rownames(cref),VariableFeatures(spat))
 # This part takes awhile to run
 anchors <- FindTransferAnchors(reference = cref, query = spat,
