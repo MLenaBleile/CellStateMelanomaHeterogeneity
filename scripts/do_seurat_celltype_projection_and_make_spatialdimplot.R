@@ -35,7 +35,16 @@ spat$projected.tumor.proportion = rowSums(predictions.matrix[,mal.cols])
 
 
 
-ScSpatialFeaturePlot(spat, features=mal.cols, pt.size.factor=2.8, flip=3)
+ScSpatialFeaturePlot(spat, features=c("MITF"), pt.size.factor=2.8, flip=3, uq=.95)
+ScSpatialFeaturePlot(spat, features=c("SOX10","MLANA","TYR"), pt.size.factor=2.8, flip=3,
+                     combine=F,uq=.95)
+ScSpatialFeaturePlot(spat, features=mal.cols, pt.size.factor=2.8, flip=3, 
+                     LegLabel="Projected\nProportion",uq=.9)
+ScSpatialFeaturePlot(spat, features="Neural_Crest_like", 
+                     LegLabel="Projected\nProportion",pt.size.factor=2.8, flip=3)
+
+###No spots are dominated by Keratinocytes or Mesenchymal, very few Antigen presentation
+table(predictions.matrix$predicted.id)
 
 ###No spots are dominated by Keratinocytes or Mesenchymal, very few Antigen presentation
 table(predictions.matrix$predicted.id)
