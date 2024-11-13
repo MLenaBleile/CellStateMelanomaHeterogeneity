@@ -7,7 +7,7 @@ library(ggplot2)
 load("data/Pozniak_reference_data.rda")
 load("data/VisiumData.rda")
 
-bothvarfeats=intersect(rownames(cref),VariableFeatures(spat))
+
 # This part takes awhile to run
 anchors <- FindTransferAnchors(reference = cref, query = spat,
                                normalization.method = "SCT")
@@ -37,7 +37,7 @@ spat$projected.tumor.proportion = rowSums(predictions.matrix[,mal.cols])
 
 ScSpatialFeaturePlot(spat, features=mal.cols, pt.size.factor=2.8, flip=3)
 
-###No spots are dominated by Keratinocytes or Mesenchymal
+###No spots are dominated by Keratinocytes or Mesenchymal, very few Antigen presentation
 table(predictions.matrix$predicted.id)
 
 
