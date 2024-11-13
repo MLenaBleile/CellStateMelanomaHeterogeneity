@@ -1,9 +1,10 @@
 library(Seurat)
 library(ggplot2)
+setwd("data")
 
 ####only run once
-acells=readRDS("data/GC_all_cells.rds")
-mcells = readRDS("data/Malignant_cells.rds")
+acells=readRDS("GC_all_cells.rds")
+mcells = readRDS("Malignant_cells.rds")
 
 ##only want the cells in both
 shared=intersect(colnames(acells), colnames(mcells))
@@ -17,14 +18,5 @@ malnames=intersect(names(acells$Cluster[acells$Cluster=="Malignant"]),
 acells$cell.type=acells$Cluster
 cref=acells[,c(immnames, kernames, stronames, malnames)]
 cref$Cluster[malnames] = mcells$Malignant_clusters[malnames]
+save(cref,file="Pozniak_reference_data.rda")
 
-
-newlabels=read.csv("data/marine_seuratobj_NONMAL_annot.csv", skip=1)
-rownames(newlabels) = newlabels$name.of.cell
-cells.in.both=intersect(newlabels$name.of.cell, colnames(cref))
-cref$cell.type.alli = cref$Cluster
-cref$cell.type.alli[cells.in.both] = newlabels[cells.in.both,"Alli.s.SingleR.cell.annotation.as.more.general.categories"]
-table(cref$cell.type.alli)
-##remove Neurons: this is not brain tissue so we know these labels are incorrect
-cref = cref[,cref$cell.type.alli!="Neurons"]
-save(cref, file="data/cleanreference")
